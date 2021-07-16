@@ -1,21 +1,56 @@
-{% extends "users/base.html" %}
+{% load static %}
 {% load crispy_forms_tags %}
-{% block content %}
-    <div class="content-section">
-        <form method="POST">
-            {% csrf_token %}
-            <fieldset class="form-group">
-                <legend class="border-bottom mb-4">Log In</legend>
-                {{ form|crispy }}
-            </fieldset>
-            <div class="form-group">
-                <button class="btn btn-outline-info" type="submit">Login</button>
-            </div>
-        </form>
-        <div class="border-top pt-3">
-            <small class="text-muted">
-                Need An Account? <a class="ml-2" href="{% url 'register' %}">Sign Up Now</a>
-            </small>
-        </div>
-    </div>
-{% endblock content %}
+<!doctype html>
+<html lang="en">
+  <head>
+  	<title>Sistem Informasi Pemantauan Covid-19 versi 1.0 - Login</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<link href="https://fonts.googleapis.com/css?family=Lato:300,400,700&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="{% static '/login-form/css/style.css' %}">
+	<link rel="icon" type="image/png"href="https://simpeg.kemsos.go.id/assets/ico/favicon.ico"/>
+
+	</head>
+	<body>
+	<section class="ftco-section">
+		<div class="container">
+			<div class="row justify-content-center">
+				<div class="col-md-6 text-center mb-5">
+					<h2 class="heading-section"></h2>
+				</div>
+			</div>
+			<div class="row justify-content-center">
+				<div class="col-md-12 col-lg-10">
+					<div class="wrap d-md-flex">
+						<div class="img" style="background-image: url('{% static '/login-form/images/bg-2.jpg' %}');"></div>
+						<div class="login-wrap p-4 p-md-5">
+							<div class="d-flex">
+								<div class="w-100">
+									<h3 class="mb-4">Login</h3>
+								</div>			
+							</div>
+							<form method="POST">
+								{% csrf_token %}
+								<fieldset class="form-group">
+									{{ form|crispy }}
+								</fieldset>
+								<div class="form-group">
+									<button type="submit" class="form-control btn btn-primary rounded submit px-3">Sign In</button>
+								</div>
+							</form>
+		          			<p class="text-center">Sistem Informasi Pemantauan Covid-19 versi 1.0</p>
+		        		</div>
+		     		</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<script src="{% static '/login-form/js/jquery.min.js' %}"></script>
+	<script src="{% static '/login-form/js/popper.js' %}"></script>
+	<script src="{% static '/login-form/js/bootstrap.min.js' %}"></script>
+	<script src="{% static '/login-form/js/main.js' %}"></script>
+
+	</body>
+</html>
